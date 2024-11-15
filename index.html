@@ -1,0 +1,1027 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOFFEE LIVE TV— Powered by Live Stream</title>
+    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/6f-KNzrLd72Upq7sqhMcMtZS-vCyb-21-J1Pr1kLHXbxr_dePs2O7vP7hAgMk8dxRw=w240-h480-rw">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fredoka+One&display=swap" rel="stylesheet">
+<meta name="google-site-verification" content="keVTh4CE7NNuJ2uokcjoiAlHfUlakVP7ThDhRKijtCc" />
+<!-- Primary Meta Tags -->
+<title>LIVE STREAM BD — Powered by Live Stream</title>
+<meta name="title" content="LIVE STREAM BD — Powered by Live Stream" />
+<meta name="description" content="Watch live tv and sports from bangladesh for free of cost..." />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://livestreambd.netlify.app/" />
+<meta property="og:title" content="LIVE STREAM BD — Powered by Live Stream" />
+<meta property="og:description" content="Watch live tv and sports from bangladesh for free of cost..." />
+<meta property="og:image" content="https://metatags.io/images/meta-tags.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://livestreambd.netlify.app/" />
+<meta property="twitter:title" content="LIVE STREAM BD — Powered by Live Stream" />
+<meta property="twitter:description" content="Watch live tv and sports from bangladesh for free of cost..." />
+<meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
+
+  <!-- Include Video.js CSS -->
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+ 
+  <style>
+    /* General styles */
+    body, html {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+    .min-h-screen {
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .header {
+      background-color: #1a0920;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-image {
+      height: 40px;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .sign-in-btn {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+    .sign-in-btn:hover {
+      background-color: #f50057;
+    }
+
+    /* Content */
+    .content {
+      padding: 1rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
+    .channels-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .channel {
+      width: 22%;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, #7b1fa2, #ff4081);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+    .channel img {
+      width: 100%;
+      height: auto;
+    }
+    .channel-quality {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      font-size: 0.5rem;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: #1a0920;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+    }
+    .nav-item {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      text-align: center;
+    }
+    .nav-item:hover {
+      color: white;
+    }
+
+/* Responsive Video Player */
+    .video-container {
+      margin: 1rem auto;
+      width: 100%;
+      max-width: 640px;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    }
+    .video-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+        
+    /* Footer Styling */
+    .footer {
+      background-color: #1a0920;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: auto;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    .store-links img {
+      width: 120px;
+      margin: 0.5rem;
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+    }
+    .social-icons a:hover {
+      color: #ff4081;
+    }
+    .copyright {
+    	Margin-bottom: 30px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-black text-white">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="https://toffeelive.com/logo.svg" alt="Toffee Logo" width="300" height="40"
+       class="logo-image">
+        
+    </div>
+    <div class="header-actions">
+      
+    </div>
+  </header>
+
+  <!-- Responsive Video Player -->
+  <div class="video-container">
+    <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="auto"></video>
+  </div>
+
+  <main class="content">
+      <div class="col-md-12">
+          <style> 
+              .notice-movies{
+              margin-top:3px;
+              background: #1a0920;
+              color: #F781F3;
+              position:relative;
+              padding:10px;
+              overflow:hidden;
+              font-family:CharuChandanHardStroke;
+              border-radius:7px
+              }
+              .notice-movies::before{
+              content:'';
+              position:absolute;
+              border-left:17px solid CharuChandan3D;
+              border-bottom:17px solid CharuChandan3D;
+              border-top:17px solid transparent;
+              border-right:17px solid transparent;
+              left:98px;
+              top:0;z-index:1
+              }
+              
+              .notice-movies::after{
+              content:'Notice:';
+              position:absolute;
+              height:100%;
+              padding:0 6px;
+              line-height:43px;
+              background: #1C1C1C;
+              color: #FE2E64;
+              font-family: fantasy;
+              font-weight:600;
+              left:0;top:0
+              } 
+             
+              </style>
+              <link 
+
+              <center> 
+                  <marquee class="notice-movies" scrollamount="5"> <font size="4vw"> টিভি চ্যানেল প্লে হতে কিছুটা সময় নিতে পারে, সেজন্য অত্যন্ত দুঃখিত । আমাদের সাথে থাকার জন্য ধন্যবাদ । </marquee>
+                  </center> 
+                  </div>
+                  
+       <!-- Sports Channels -->
+    <section>
+        <br>  <br>
+         <center> 
+   <h2 class="section-title">TOFFEE SPECIAL</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+         
+          <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=9cc74d11cfd0&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/19779/logo/240x240/mobile_logo_975410001725875598.png" alt="Toffee Sports">
+        </div>
+           <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=b1ba8efdd99d&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/44878/logo/240x240/mobile_logo_764950001725875605.png" alt="Toffee Drama's">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=99cf56ce2888&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/2708/logo/240x240/mobile_logo_724353001725875591.png" alt="Toffee Movie's">
+        </div>
+       
+          </section>
+              
+              
+    <!-- Bangladeshi Channels -->
+    <section>
+           <br>  <br>
+         <center> 
+      <h2 class="section-title">BANGLADESH</h2>
+       </center> 
+          <br>  <br>
+      <div class="channels-grid">
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/btvnational1.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRb7QvpNrd2INV2mEu9xmdVtIXUNVNlDIcahA&usqp=CAU" alt="B TV">
+        </div>
+           <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/btvbd-office-sg.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/1/logo/240x240/mobile_logo_310000001673183767.png" alt="B TV World">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/btvnational-ctg.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpCja5QD265KY9EXBT5pEFD-DLBuexB-T68Olr8aHLrzvGzCT4yjU1PyjW7TJMfJIGgj0&usqp=CAU" alt="BTV Chittagong">
+        </div>
+        <div class="channel" data-url="http://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbd-8-org.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/38/logo/240x240/mobile_logo_483871001656610198.png" alt=" ATN Bangla">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnbanglauk-off.stream/live-orgin/atnbanglauk-off.stream/chunks.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2017/01/atnbanglauk11.jpg?x67896" alt="ATN Bangla UK">
+          </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnws-sg.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/42/logo/240x240/mobile_logo_554709001657185722.png" alt="ATN News">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnislamictv.stream/live-orgin/atnislamictv.stream/chunks.m3u8?nimblesessionid=493260836">
+          <img src="https://i.ibb.co/CQ0JWPQ/20240803-172457.png" alt="ATN Islamic">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/asian-test-sample-ok-d.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2015/12/asiantv.jpg?x67896" alt="Asian TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/jamuna-test-sample-ok.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/46/logo/240x240/mobile_logo_222968001673182917.png" alt="Jamuna">
+        </div>
+        <div class="channel" data-url="http://bapatv.live:8080/gtv/tracks-v1a1/mono.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUbugKXrnnrbxbUjiDRQDE0Pl8cCSxfnt1a3Y6IEmXbqNozYPMucRt8wdTzQWGGSjLEAQ&usqp=CAU" alt="G TV">
+        </div>
+         <div class="channel" data-url="https://cdn.ncare.live/flixhls/flixsrktv.stream/playlist.m3u8">
+          <img src="https://www.shutterstock.com/image-vector/srk-letter-logo-design-white-260nw-2345229549.jpg" alt="SRK TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/globaltv.stream/playlist.m3u8">
+          <img src="https://yt3.googleusercontent.com/X8QfZ4BYslnM3433FPXkEV2ncYWUnsmZSRDFafcoApy5OZQrkOYqkSvCTaaOJE5AQgpTuF8I7sM=s176-c-k-c0x00ffffff-no-rj-mo" alt="Ekhon">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/banglav000.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/337/logo/240x240/mobile_logo_519481001656610377.png" alt="Bangla Vision">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/live-orgin/somoyt000011226615544544.stream/playlist.m3u8">
+          <img src="https://tstatic.akash-go.com/cms-ui/images/custom-content/1719926324363.png" alt="Somoy TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/channel9hd.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/9/logo/240x240/mobile_logo_363996001656610763.png" alt="Channel 9">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/channel24-sg-e8e.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/52/logo/240x240/mobile_logo_262737001655890931.png" alt="Channel 24">
+        </div>
+         <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/channeli-8-org.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/3/logo/240x240/mobile_logo_694865001655890816.png" alt="Channel I">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/dbcnews.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/335/logo/240x240/mobile_logo_946452001655891077.png" alt="DBC News">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/deshtv.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/39/logo/240x240/mobile_logo_569553001668421527.png" alt="Desh TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ekattor.stream/live-orgin/ekattor.stream/chunks.m3u8">
+          <img src="https://images.toffeelive.com/images/program/53/logo/240x240/mobile_logo_107276001655890949.png" alt="Ekattor TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/satvoff5666.stream/playlist.m3u8">
+          <img src="https://i.ibb.co/dBbTPtQ/20240826-230616.png" alt="S A TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/news24local.stream/playlist.m3u8">
+          <img src="https://i.ibb.co/kyxby2Q/20240826-230739.png" alt="News 24">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/independent-8-org.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/40/logo/240x240/mobile_logo_819689001655890845.png" alt="Independent">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/anandatv.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/692/logo/240x240/mobile_logo_317599001655891632.png" alt="Ananda TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/nantv.stream/live-orgin/nantv.stream/chunks.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2019/11/NAN-TV-Logo-02.png" alt="NAN TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/b24c.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2023/01/b24c-1.jpeg" alt="B24C TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/bangla21tv000889956-sg.stream/live-orgin/bangla21tv000889956-sg.stream/chunks.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2016/02/bangla21tv.jpg?x67896" alt="Bangla 21 TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/bijoy00.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2016/02/bijoytv.jpg" alt="Bijoy TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/biswabanglatv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2022/03/Logo-Still.png" alt="Biswa Bangla">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/cb24.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/01/CB24-PP-LOGO.png" alt="CB 24">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/cha1.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/IMG_0459-1536x1536.png" alt="Channel A1">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/channeleurope.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2022/12/cheu.png" alt="Channel Europe">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/channels.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/ydsN3N8v/Screenshot-20241115-125106-Gallery.jpg" alt="Channel S BD">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/chsukoff.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_OoBST8IOU0i5yAcgEoz9tu5dJuroeMwiXg&s" alt="Channel S UK">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/colosal.stream/live-orgin/colosal.stream/chunks.m3u8">
+          <img src="https://i.postimg.cc/Kv4LKXQS/Screenshot-20241115-125741-Gallery.jpg" alt="Colosal TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/eshebideshe.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2016/08/deshebideshe-1.jpg" alt="Deshe Bideshe ">
+        </div>
+         <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/deshitv.stream/playlist.m3u8?">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/desitv.png" alt="Deshi TV">
+        </div>
+       <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/dimtv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/10/dim.png" alt="Dim TV">
+        </div> 
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/falgunitv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/10/falgunitv.jpg" alt="Falgun TV">
+        </div>
+        
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/Global-tv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2021/11/globaltv.jpg" alt="Global TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ibtvus.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/ibtv.jpg" alt="IB TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/moviebanglalink2.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/12282/logo/240x240/mobile_logo_671378001663674667.png" alt="Movies Bangla">
+        </div>
+        <div class="channel" data-url="https://byphdgllyk.gpcdn.net/hls/banglatveurope/index.m3u8">
+          <img src="https://i.ibb.co/mHn2Zbm/20240826-230932.png" alt="Bangla TV Europe">
+        </div>
+        <div class="channel" data-url="https://byphdgllyk.gpcdn.net/hls/banglatvbd/index.m3u8">
+          <img src="https://images.toffeelive.com/images/program/375/logo/240x240/mobile_logo_453885001655891270.png" alt="Bangla TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/mytv-up-off.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/339/logo/240x240/mobile_logo_897303001655891103.png" alt="My TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/boishakhitv-org.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/236/logo/240x240/mobile_logo_341242001655891063.png" alt="Boishakhi">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/rtv-sg.stream/playlist.m3u8">
+          <img src="https://images.toffeelive.com/images/program/338/logo/240x240/mobile_logo_401499001655891091.png" alt="R TV ">
+        </div>
+         <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/deeptotv.stream/playlist.m3u8?">
+          <img src="https://i.ibb.co/kqF2kdy/20240826-230650.png" alt="Deepto">
+        </div>
+       <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ekusheytv-8-org.stream/playlist.m3u8">
+          <img src="https://i.ibb.co/zPFbF67/20240826-230349.png" alt="Ekushey">
+        </div> 
+        <div class="channel" data-url="https://mtv.sunplex.live/MAASRANGA-TV/index.m3u8">
+          <img src="https://www.cyber-islam.eu/wp-content/uploads/2019/06/Maasranga-Television.jpg" alt="Massranga TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/iontvuk.stream/playlist.m3u8">
+          <img src="https://ethnicmediagroup.co.uk/wp-content/uploads/2022/02/Untitled-design-24-300x300.png" alt="Ion Tv UK">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/jagonews24.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/jagonews-150x150.jpg?x67896" alt="Jago News 24">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/jagoronitv.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQyQskSF463A23TF4G6SD8-5jAT-EK6g_8goYKjaj9bLIb5jem0" alt="Jogoroni">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/jonmobhumitv.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/Z0kdtnN8/Screenshot-20241115-131135-Gallery.jpg" alt="Jonmobhumi">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/mnews24.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcST8KIZOQsZ1S__gE1JHDZMcWypzhqaWiyL7OI7t5v_n_nC0fsK" alt="Millennium 24">
+        </div>
+       <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/millenniumtv-odr-up2.stream/playlist.m3u8">
+          <img src="https://play-lh.googleusercontent.com/k2pZI4ICzAXwZVzMpB232mOwKAzGBrsWQ-ctp0xZjiVAm_n7pb89afOYrrvRZRoNQqE" alt="Millennium TV">
+        </div>
+        
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/news21bd.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/11/news21-150x150.jpg" alt="News 21">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/nexustv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2021/07/nexustv-150x150.png" alt="Nexus TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/nrb-eu.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2016/08/nrb.jpg?x67896" alt="NRB TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHGIxcXP1wSrqu38KdjJET9Cei-MQVIdeqUo2MNMAQITxu5adCzph3AB2K8_8N1A0USzQ&usqp=CAU" alt="N TV Europe">
+        </div>
+         <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/rajdhanitv.stream/playlist.m3u8?">
+          <img src="https://i.postimg.cc/ZR9jfc6V/Screenshot-20241115-142845-Gallery.jpg" alt="Rajdhani Tv">
+        </div>
+       <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/unnamed-150x150.webp" alt="Ruposhi Bangla">
+        </div> 
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/smtvbd.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/11/smtv-150x150.jpg" alt="SM TV">
+        </div>
+        
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/songsodtv-world.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2017/01/songsodtv-150x150.jpg" alt="Sangsod TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/thechanneltv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2020/07/thechanneltv-1-150x150.jpg" alt="The Channel Tv">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/timetvusa.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2016/02/timetv-150x150.jpg" alt="Time TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/times24tv.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/mZSf7Z2k/Screenshot-20241115-150703-Gallery.jpg" alt="Times 24">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/tvoneuksni.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/SKVkvb4K/Screenshot-20241115-143914-Gallery.jpg" alt="TV One">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/deentv.stream/playlist.m3u8">
+          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ3fDcreCeXjhxCqux_4VofmXttkdGSryc8nvg85q_OUD0RoV2k" alt="Deen TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/abtvusa.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2020/05/ABtv-Log-.jpg?x67896" alt="AB TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/v2beattv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2020/05/V2BEATTV-150x150.png" alt="V2BEAT TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/varendratv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2017/01/varendro-tv-150x150.jpg" alt="Varendra">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/voa.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2019/10/vooa-150x150.jpg" alt="Voice Of America">
+        </div>
+         <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/voktatv.stream/playlist.m3u8?">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/10/Vokta-TV-150x150.jpg" alt="Vokta">
+        </div>
+        </div>
+    </section>  
+     
+    <!-- Sports Channels -->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">SPORTS</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=43dcec1011e7&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/603/logo/240x240/mobile_logo_237244001666780563.png" alt="Sony Sports 1">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=abc6677968ef&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/604/logo/240x240/mobile_logo_093449001666780976.png" alt="Sony Sports 2">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=edc6a07e4754&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/2418/logo/240x240/mobile_logo_992280001666781086.png" alt="Sony Sports 3">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=fd6de8bd1666&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/606/logo/240x240/mobile_logo_689539001672145843.png" alt="Sony Sports 5">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="https://bdix-toffee.iptvbd.xyz/live.php?id=5221aff96f3c&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/4387/logo/240x240/mobile_logo_412057001674119486.png" alt="euro Sports">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=258468998307&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/4388/logo/240x240/mobile_logo_422191001674119624.png" alt="Euro Sports HD">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://103.175.242.10:8080/tsports2/tracks-v1a1/mono.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOdp_c_Mdcs1WuQUP_y3gjntGRZaCw7VjhpQ&usqp=CAU" alt="T Sports ">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://bapatv.live:8080/hls/beinsp-1/index.m3u8">
+          <img src="http://bapatv.live/assets/images/Bein%20Sports%2011731467666.png" alt="Bein Sports 1">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://bapatv.live:8080/hls/beinsp-extra/index.m3u8">
+          <img src="http://bapatv.live/assets/images/Bein%20Sports%20Extra1731467457.png" alt="Bein Sports Extra">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://103.175.242.10:8080/tsports2/tracks-v1a1/mono.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOdp_c_Mdcs1WuQUP_y3gjntGRZaCw7VjhpQ&usqp=CAU" alt="T Sports ">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="http://bapatv.live:8080/hls/beinsp-1/index.m3u8">
+          <img src="http://bapatv.live/assets/images/Bein%20Sports%2011731467666.png" alt="Bein Sports 1">
+          <span class="channel-quality">HD</span>
+        </div>
+        <div class="channel" data-url="https://bdixtv247.top//cn1/play.php?key=BDIXTV24&c=asportshd&ts=https://d8.jisdeshmaiganga.com:999/hls/asportshd-66146.ts">
+          <img src="http://bapatv.live/assets/images/Bein%20Sports%20Extra1731467457.png" alt="Bein Sports Extra">
+          <span class="channel-quality">HD</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entertainment Channels -->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">ENTERTAINMENT</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=2bec2112b890&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/57/logo/240x240/mobile_logo_149299001666780350.png" alt="Sony Set">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=243771d9592c&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/602/logo/240x240/mobile_logo_495351001666780441.png" alt="Sony Set HD">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=b6192dbff21b&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/352/logo/240x240/mobile_logo_612341001666782969.png" alt="Sony Max">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=6a65854166f1&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/641/logo/240x240/mobile_logo_440775001666782769.png" alt="Sony Max HD">
+        </div>
+      <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=a40abb7586bc&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/367/logo/115x115/mobile_logo_886909001563629905.png" alt="B4U Music">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=7e00fee81848&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/343/logo/240x240/mobile_logo_496322001666780228.png" alt="Sony Aath">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=b7167fe646a4&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/2420/logo/240x240/mobile_logo_688156001666785674.png" alt="Sony Sab">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=420510be5c17&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/353/logo/240x240/mobile_logo_044841001666779831.png" alt="Sony Max 2">
+        </div>
+      <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=ac21c8534679&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/2422/logo/240x240/mobile_logo_037670001666785867.png" alt="Sony Wah">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=57bd9c2493c1&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/612/logo/240x240/mobile_logo_091186001666784752.png" alt="Sony Yay">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=a6497ebbf14f&e=.m3u8">
+          <img src="https://yt3.googleusercontent.com/V_9kN9wWm4Se4NkHNUpABjh0-xxrknKJRRunUYPagekMRem2eL88zKd9dk7gLnxUipFriYZE9-o=s900-c-k-c0x00ffffff-no-rj" alt="Sony Earth">
+        </div>
+        <div class="channel" data-url="https://spt-sonykal-1-us.lg.wurl.tv/playlist_192k.m3u8">
+          <img src="https://i.ibb.co/8Xq5NgM/20240804-145843.png" alt="Sony Kal">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Music Channels -->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">MUSIC</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+        <div class="channel" data-url="https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Sangeetbangla/default/index.m3u8">
+          <img src="https://i.ibb.co/b1nCFvF/20240803-103853.png" alt="Sangeet Bangla">
+        </div>
+        <div class="channel" data-url="https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Musicindia/default/index.m3u8">
+          <img src="https://i.ibb.co/s6Czgpt/20240803-104352.png" alt="Music India">
+        </div>
+        <div class="channel" data-url="https://d1g8wgjurz8via.cloudfront.net/bpk-tv/9Xtashan/default/9Xtashan.m3u8">
+          <img src="https://i.ibb.co/HKN9zYR/20240803-105155.png" alt="9x Tahsan">
+        </div>
+        <div class="channel" data-url="https://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/index.m3u8">
+          <img src="https://i.ibb.co/PWs3RPy/20240803-105114.png" alt="9X M">
+        </div>
+        <div class="channel" data-url="https://d75dqofg5kmfk.cloudfront.net/bpk-tv/9Xjalwa/default/9XJalwa.m3u8">
+          <img src="https://i.ibb.co/Qp2LXzD/20240803-105126.png" alt="9X Jalwa">
+        </div>
+        <div class="channel" data-url="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/mastiii/master.m3u8">
+          <img src="https://i.ibb.co/HGFpm7c/20240803-104435.png" alt="AB Mastii">
+        </div>
+        <div class="channel" data-url="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/yrf-music/master.m3u8">
+          <img src="https://i.ibb.co/Fg11rTg/20240813-112536.png" alt="yrf Music">
+        </div>
+        <div class="channel" data-url="https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Sangeetbhojpuri/default/sangeetbhojpuri-audio_208482_und=208000-video=247600.m3u8">
+          <img src="https://i.ibb.co/1MY1r9f/20240803-105226.png" alt="SANGEET BHOJPURI">
+        </div>
+        <div class="channel" data-url="https://livecdn.live247stream.com/joomusic/tv/playlist.m3u8">
+          <img src="https://i.ibb.co/P6m5DTW/20240803-105303.png" alt="Joo music">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/gaanbangla-8-orgd.stream/playlist.m3u8">
+          <img src="https://i.ibb.co/L6V3Gsh/20240802-204557.png" alt="GAAN BANGLA">
+        </div>
+        <div class="channel" data-url="https://epiconvh.s.llnwi.net/showbox/master.m3u8">
+          <img src="https://i.ibb.co/SQL9Zs5/20240803-105418.png" alt="SHOW BOX">
+        </div>
+        <div class="channel" data-url="https://live-e24.dailyhunt.in/eternowsa/live/amlst:E24_,b256,b512,b1024,b1824,.smil/playlist_256k.m3u8">
+          <img src="https://i.ibb.co/dbjnG3X/20240803-105403.png" alt="E24">
+        </div>
+        <div class="channel" data-url="https://drmlive.in/yupptv/balle-balle.m3u8">
+          <img src="https://i.ibb.co/WtkmCXz/20240803-163225.png" alt="BALLE BALLE">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/atnmusic.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/TYLskWH4/Screenshot-20241114-062528-Gallery.jpg" alt="ATN MUSIC">
+        </div>
+        <div class="channel" data-url="https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Mtvbeats/default/mtvbeats-audio_208482_und=208000-video=2137600.m3u8">
+          <img src="https://images.toffeelive.com/images/program/2432/logo/240x240/mobile_logo_564387001655891879.png" alt="M Beats HD">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/rtvmusic.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2017/01/rtvmusic.jpg?x67896" alt="R TV Music">
+        </div>
+        </div>
+        </div>
+    </section>
+    
+      <!-- Movies Channels -->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">MOVIE'S</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=ea02096b0fbc&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/2419/logo/240x240/mobile_logo_287412001666784602.png" alt="Sony Pix Hd">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=cd113761e022&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/366/logo/240x240/mobile_logo_702115001663003759.png" alt="B4u Movies">
+        </div>
+         <div class="channel" data-url="https://cc-jytb1qhmgqh5a.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-jytb1qhmgqh5a/playlist.m3u8">
+          <img src="https://i.ibb.co/xHfvgtk/20240816-213001.png" alt="THE MOVIE CLUB">
+        </div>
+        <div class="channel" data-url="https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/bollywood-prime/3850b620-3d48-4f69-a540-27e9f3262077/3.m3u8">
+          <img src="https://i.ibb.co/jJ4BZ85/20240816-214136.png" alt="BOLLWDOOD PRIMR">
+        </div>
+         <div class="channel" data-url="https://d35j504z0x2vu2.cloudfront.net/v1/manifest/0bc8e8376bd8417a1b6761138aa41c26c7309312/bollywood-prime/3850b620-3d48-4f69-a540-27e9f3262077/3.m3u8">
+          <img src="https://i.ibb.co/tYcNbLy/20240827-090809.png" alt="BOLLYWOOD HD">
+        </div>
+        <div class="channel" data-url="https://amg00864-shemarooenterta-shemabollywood-ono-nlwbw.amagi.tv/playlist/amg00864-shemarooenterta-shemabollywood-ono/playlist.m3u8">
+          <img src="https://i.ibb.co/7nT3j6X/20240816-213443.png" alt="SHEEMAROO BOLLYWOOD">
+        </div>
+         <div class="channel" data-url="https://live-bhojpuri.akamaized.net/liveabr/playlist.m3u8">
+          <img src="https://i.ibb.co/vZXSqf0/20240816-214223.png" alt="BHEJPURI CINEMA">
+        </div>
+        <div class="channel" data-url="https://epiconvh.s.llnwi.net/filamchi/master_864.m3u8">
+          <img src="https://i.ibb.co/fYc6mkF/20240816-213259.png" alt="FILAMCHI">
+        </div>
+         <div class="channel" data-url="http://212.102.60.231/HBO/index.m3u8">
+          <img src="https://i.imgur.com/gtkiZQY.png" alt="HBO">
+        </div>
+        <div class="channel" data-url="https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgSJY6ooyG7Kj6iw8q_CTYftkHL473ensBd6gdHsGo9MsawhI-XfDTawRn&s=10" alt="MOVIE SPHERE">
+        </div>
+        <div class="channel" data-url="https://amg01076-lightningintern-actionhollywood-samsungnz-82rry.amagi.tv/playlist/amg01076-lightningintern-actionhollywood-samsungnz/playlist.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDikfmxcc1oEmW5PjEKWwC58AVaGN4aW6kfZyz0GXxg36aYMjk6PZMLjU&s=10" alt="Action Hollywood Movies">
+        </div>
+         <div class="channel" data-url="https://cc-tke03xaj1wszc.akamaized.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-tke03xaj1wszc/South_Station_IN/playlist.m3u8">
+          <img src="https://i.imgur.com/i1UkI3B.jpg" alt="South Station">
+        </div>
+        <div class="channel" data-url="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bollywood-classic/manifest.m3u8">
+          <img src="https://i.imgur.com/dd8VLUN.jpg" alt="Bollywood Classic">
+        </div>
+         <div class="channel" data-url="https://epiconvh.s.llnwi.net/nazara/master.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3QXp9lM_An6IFbbjdXHN_VMoOHbOe3Y8mYGEYF5INSfa7HvswX0np32k&s=10" alt="HBO">
+        </div>
+        </div>
+    </section>
+    
+        <!--Kidz Channels-->
+    <section>
+         <center> 
+             <br>  <br>
+      <h2 class="section-title">  KIDZ </h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+          <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=206c4fa8e760&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/26942/logo/240x240/mobile_logo_443429001678950505.png" alt="CN Plus">
+        </div>
+          <div class="channel" data-url="https://bdix-toffee.iptvbd.xyz/live.php?id=8be5ec5d5d7c&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/27232/logo/240x240/mobile_logo_320294001679201065.png" alt="CN">
+        </div>
+          <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=1fe9cf550c24&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/611/logo/240x240/mobile_logo_430542001673177743.png" alt="Discovery Kidz">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=38060f0d4077&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/27159/logo/240x240/mobile_logo_740957001679201029.png" alt="Pogo">
+        </div>
+        <div class="channel" data-url="http://bdix.sadman.app.tc/ZeeBangla/index.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI7jqQNmrU9M5OsuybdQ5jFCpYSz1NX20BE8vFR-xcOfhV781I6xXtacE&s=10" alt="Sonic">
+        </div>
+        <div class="channel" data-url="http://xtv.ooo:8080/live/98267/02727/150482.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD1iJkmqmKoS9PnVilNauR8_js8O5J7fLxkFsTGf_i8k2Wxvkgm9NxN5Q&s=10" alt="Nick">
+        </div>
+        <div class="channel" data-url="http://xtv.ooo:8080/live/927382370/837382809/150480.m3u8">
+          <img src="https://i.ibb.co/GtzCDKM/20240803-163809.png" alt="Hangama">
+        </div>
+        <div class="channel" data-url="https://epiconvh.s.llnwi.net/gubbare/master.m3u8">
+          <img src="https://i.ibb.co/F3XcWbG/20240803-103747.png" alt="GUBBARE">
+        </div>
+        <div class="channel" data-url="https://server.thelegitpro.in/rongeentv/rongeentv/tracks-v1a1/mono.m3u8">
+          <img src="https://i.ibb.co/yBYRgLt/20240813-063955.png" alt="RONGEEN TV">
+        </div>
+        <div class="channel" data-url="https://streams.spacetoon.com/live/stchannel/smil:livesmil.smil/chunklist_w537828290_b346000_slAR.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmntQ6lJUcvgd5Xz4d3hJZKuAzv9ujFEdWEj_RG-nTD0tWwY7ojQjII5n5kyKiIdD5fbE&usqp=CAU" alt="RONGEEN TV">
+        </div>
+      </div>
+    </section>
+    
+        <!-- International News Channels-->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">International News</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+          <div class="channel" data-url="https://bdix-toffee.iptvbd.xyz/live.php?id=85ccda8c4fc5&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/333/logo/240x240/mobile_logo_373682001676354236.png" alt="CNN">
+        </div>
+               <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/aljazeera.stream/playlist.m3u8">
+          <img src="https://carsonparkdesign.com/wp-content/uploads/2014/02/Al_jazeera_Calligraphy_Animation.gif" alt="Al Jazeera">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/cgtn.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2022/10/CGTN.png" alt="CGTN">
+        </div>
+               <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/dwnews.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2019/07/dwnews.jpg" alt="DW News">
+        </div>
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/fr24.stream/live-orgin/fr24.stream/chunks.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2019/07/francenews24.jpg" alt="France News">
+        </div>
+        
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/uatv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2019/09/freedom.jpg" alt="Freedom">
+        </div>
+               <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/dwnews.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2019/07/dwnews.jpg" alt="DW News">
+        </div>
+          </section>
+          
+           <!-- Kolkata Channels-->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">KOLKATA</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/amarbanglatv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2022/07/Aamar-Bangla-150x150.jpg" alt="Amar Bangla">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/amardigital.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/amardigital-1-150x150.jpg" alt="Amar digital">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/anandabarta.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/ANANDABARTA-150x150.jpeg" alt="Ananda Barta">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/expressnews.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/10/expressnews-150x150.png" alt="Express News">
+        </div>
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/hometv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/hometv-150x150.jpg" alt="Home TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/montv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/montv-150x150.jpg" alt="Mon TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/zodiaktv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/zodiaktv-150x150.jpg" alt="Zodiak TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/samaykolkata.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/samaykolkata-150x150.jpg" alt="Samay Kolkata">
+        </div>
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/sanandatv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/10/sananda-150x150.jpg" alt="Sananda">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/tenprime.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/NFNkLMRH/Screenshot-20241115-155256-Gallery.jpg" alt="Ten Prime">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/tehelkatv.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/k4qQc8cS/Screenshot-20241115-155608-Gallery.jpg" alt="Tehelka TV">
+        </div>
+        <div class="channel" data-url="http://bapatv.live:8080/zeebncinema/index.m3u8">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Star_Jalsha_logo_2023.png/528px-Star_Jalsha_logo_2023.png" alt="Star Jalsha HD">
+        </div>
+          <div class="channel" data-url="https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Sangeetbangla/default/index.m3u8">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9hkym8alDrxxsP0ywAeZFEos4Fn71URfSTw&s" alt="Sangeet Bangla">
+        </div>
+        <div class="channel" data-url="https://live-bangla.akamaized.net/liveabr/playlist.m3u8">
+          <img src="https://yt3.googleusercontent.com/ytc/AIdro_kI4JClRCHEh9PH1YHLAm7kULM1u9UUStnre_vqyPnRFgM=s900-c-k-c0x00ffffff-no-rj" alt="Enter 10 BD">
+        </div>
+        <div class="channel" data-url="https://uspro.click/sunbangla/index.m3u8?token=d4b976cae274eb503cf1a879bc7152df77fa4864-2843bf6ce7543ab873d77232a841f408-1731674108-1731663308&amp;autoplay=true">
+          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQf-auuzpbRwT-MkYirMDsJnbHhHjiYvwy1DmYhFf_vnZgwl_CB" alt="Sun Bangla TV">
+        </div>
+          <div class="channel" data-url="https://uspro.click/colorsbangla/index.m3u8?token=dbdcf5d65e0eaa3d8a3b8f9f9aa03f7f80b2d554-80a3260389ca3162b71c573ef443b4ae-1731674266-1731663466&amp;autoplay=true">
+          <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQP4rI6TaswPHzB-ve9aBeCDwvXP16rjzIE4_YFDDSASQehW_gY" alt="Colours Bangla">
+        </div>
+        <div class="channel" data-url="https://uspro.click/zeebanglahd/index.m3u8?token=ad17a06982e46b694d6a54a30494ac8ade2dee93-3703aa5b322eb8d1709e9a9c95748437-1731674369-1731663569&amp;autoplay=true">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT2vjXt1wmbkOmpKvq4SQXbLTIhoAhoZTKpb4paMU9FUIDDy5VD" alt="Zee Bangla">
+        </div>
+          </section>
+          
+          
+          <!-- Religion Channels-->
+    <section>
+        <br>  <br>
+         <center> 
+      <h2 class="section-title">RELIGION</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">
+          
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/iqrabanglatvoffice.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2017/01/IQRA-BANGLA-TV-150x150.jpeg" alt="Iqra Bangla TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/islamtv.stream/playlist.m3u8">
+          <img src="https://i.postimg.cc/jjT9S6kw/images.jpg" alt="Islam TV">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/islamtv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/icb-150x150.jpg" alt="Islam Channel Bangla">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/madanitvbangla.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2020/05/Madani-Channel-Bangla-150x150.jpg" alt="Madani Channel">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/makkah.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2020/05/MakkahLive-150x150.jpg" alt="Makkah Live">
+          </div>
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/makkahtv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2021/04/makkahtv-150x150.jpg" alt="Makkah TV">
+        </div>
+        
+          <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/madina.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2020/05/Medina-Live-150x150.jpg" alt="Medina Live">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/peacetvban.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/logo_50-150x150.png" alt="Peace Bangla">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/salamtv.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/salaam-150x150.jpg" alt="Salaam TV">
+        </div>
+          </section>
+          
+       <!--Infotainment Channels-->
+    <section>
+         <center> 
+             <br>  <br>
+      <h2 class="section-title">INFOTAINMENT</h2>
+       </center> 
+       <br>  <br>
+      <div class="channels-grid">    
+          <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=f70ef199f41d&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/18096/logo/240x240/mobile_logo_032001001673194753.png" alt="Animal Planet HD">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=52d1df2fdb80&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/359/logo/240x240/mobile_logo_835681001673175607.png" alt="Animal Planet">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=77e72f2ba472&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/18093/logo/240x240/mobile_logo_868363001673181438.png" alt="Discovery HD">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=a1c4e01414e7&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/18097/logo/240x240/mobile_logo_297723001673195119.png" alt="Discovery">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=591ea81b1aba&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/378/logo/240x240/mobile_logo_604754001673177502.png" alt="Discovery Science">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=a051de5ade20&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/379/logo/240x240/mobile_logo_775127001673177876.png" alt="Discovery Turbo">
+        </div>
+        <div class="channel" data-url="https://bdix-toffee.iptvbd.xyz/live.php?id=6789650f5629&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/18094/logo/240x240/mobile_logo_154805001673178308.png" alt="Discovery Investigation HD">
+        </div>
+        <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=6789650f5629&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/18095/logo/240x240/mobile_logo_452964001673178334.png" alt="Discovery Investigation">
+        </div>
+         <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=090bf33a56cb&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/608/logo/240x240/mobile_logo_648826001673178929.png" alt=" TLC HD">
+        </div>
+       <div class="channel" data-url="https://bdixtv24.site/toffee/live.php?id=e12a84713a40&e=.m3u8">
+          <img src="https://images.toffeelive.com/images/program/358/logo/240x240/mobile_logo_048875001673178985.png" alt="TLC">
+        </div> 
+        <div class="channel" data-url="https://travelxp-travelxp-1-gb.samsung.wurl.tv/3000.m3u8">
+          <img src="https://i.ibb.co/k9RxJ99/20240803-110853.png" alt=" TRAVELXP">
+        </div>
+       <div class="channel" data-url="https://wildearth-roku.amagi.tv/masterR720P.m3u8">
+          <img src="https://i.ibb.co/ngNhxGh/20240803-165452.png" alt="WILD EARTH">
+        </div> 
+        
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/cgtndoc.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2022/10/CGTN_Doc-150x150.png" alt="CGTN Documentary">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/discoverpakistan.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/09/discoverpakistan-150x150.jpg" alt="Discovery Pakistan">
+        </div>
+        <div class="channel" data-url="https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/voadoc.stream/playlist.m3u8">
+          <img src="https://www.jagobd.com/wp-content/uploads/2024/08/52doc-150x150.png" alt="Discovery Pakistan">
+        </div>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      
+    </div>
+  <div class="footer-content">
+    <img src="https://toffeelive.com/logo.svg" alt="Toffee Logo" width="120">
+    <p class="copyright">Copyright © 2024 TOFFEE. All rights reserved.<br>Power By Live Stream
+  <br>  <br>Developed By S H Nafij</p>
+  
+</footer>
+
+
+</body>
+</html>
+
+
+  <!-- Include Video.js JavaScript -->
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+  <script>
+    // Initialize the Video.js player
+    var player = videojs('videoPlayer');
+
+    // Function to load and play the m3u8 URL
+    function loadVideo(url) {
+      player.src({
+        src: url,
+        type: 'application/x-mpegURL'
+      });
+      player.play();
+    }
+
+    // Event listener for each channel
+    document.querySelectorAll('.channel').forEach(channel => {
+      channel.addEventListener('click', () => {
+        const url = channel.getAttribute('data-url');
+        loadVideo(url);
+      });
+    });
+  </script>
+</body>
+</html>
+
